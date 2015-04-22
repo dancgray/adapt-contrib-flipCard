@@ -1,0 +1,77 @@
+{
+  "type":"object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "properties":{
+    "instruction": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "inputType": "Text",
+      "validators": [],
+      "help": "This is the instruction text"
+    },
+
+    "_flipType": {
+      "type":"boolean",
+      "required":true,
+      "default": false,
+      "title": "Lock cards",      
+      "inputType": {"type": "Boolean", "options": [true, false]},
+      "help": "Lock cards so only one can be visible at a time"
+    },
+    "_flipTime": {
+      "type":"number",
+      "required":true,
+      "default": 400,
+      "title": "Lock cards",      
+      "inputType": "Number",
+      "validators": ["required", "number"],
+      "help": "Delay for card animation"
+    },
+    "_items": {
+      "type":"array",
+      "required":true,
+      "title": "Items",
+      "items": {
+        "type":"object",
+        "required":true,
+        "properties":{
+          "frontImageSrc": {
+            "title": "Graphic",
+            "type":"string",
+            "required":true,
+            "default": "",
+            "inputType": "Asset:image",
+            "validators": [],
+            "help": "Image for this card"
+            }
+          },
+          "backHeading": {
+            "type":"string",
+            "required":false,
+            "default": "",
+            "title": "Back Heading",
+            "inputType": "Text",
+            "validators": [],
+            "help": "This text will display with the image"
+          },
+          "backListOfOptions": {
+            "type":"array",
+            "required":true,
+            "title": "List of Option",
+            "items": {
+              "type":"string",
+              "required":false,
+              "default": "",
+              "inputType": "Text",
+              "validators": [],
+              "help": "This text will display with the image"
+            }
+          }
+        }
+      }
+    }
+  }
+}
